@@ -12,13 +12,16 @@ class C
 
 	//主要是对于多维数组节省遍历成本
 	public static $cache_conf;
-	
 
-	/* 
-	 *  加载配置，并让配置从可视化的友好变为使用的友好
-	 */
-	public static function loadConfig()
-	{
+	public static function set($key, $value) {
+		$conf[$key] = $value;
+	}
+
+	public static function get($key) {
+		return $conf[$key];
+	}
+
+	public static function loadConfig() {
 		//初始化服务器类型
 		$server_type = get_cfg_var('server_type');
 		$conf_file = CONF_PATH . $server_type. ".php";
@@ -41,7 +44,7 @@ class C
 	 * @return mix/false
 	 */
 
-	public static function get($key, $log = true)
+	/*public static function get($key, $log = true)
 	{
 		if(empty(self::$conf))
 		{
@@ -104,10 +107,10 @@ class C
 		}
 		$log && Log::info("config not defined,key " . $key);
 		return false;
-		}
+		}*/
 
 	//设置配置文件值
-	public static function set($key, $value)
+	/*public static function set($key, $value)
 	{
 		if(empty(self::$conf))
 		{
@@ -132,5 +135,5 @@ class C
 			$conf[$key] = $value;
 		}
 		return true;
-	}
+	}*/
 }

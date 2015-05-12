@@ -93,5 +93,10 @@ foreach ($numbers as $number) {
 
 require_once __DIR__ . "/init.php";
 
-$varstr = "dwoo.";
-var_dump(strstr($varstr, '.', true));
+$dir = TPL_PATH;
+echo $dir;
+$tmpDir = rtrim($dir, '/\\') . DIRECTORY_SEPARATOR;
+echo $tmpDir;
+var_dump(is_dir($tmpDir));
+
+var_dump(file_exists(TPL_PATH . 'index.tpl'));

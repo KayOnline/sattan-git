@@ -13,13 +13,19 @@ define('STATIC_PATH',ROOT_PATH.'static/');
 define('TPL_PATH',ROOT_PATH.'static/tpl/');
 
 // 类加载器
-require_once __DIR__. "/autoloader.php";
+require_once __DIR__. '/Autoloader.php';
+AutoLoader::init();
 
-// DWOO模版
-require_once 'phar://lib/dwoo.phar';
+// 模版yinqin
+require_once 'phar://' . LIB_PATH . 'dwoo.phar';
+ViewEngine::init();
+
+// bieming
+require_once BASE_PATH . '/alias.php';
 
 // 公共函数
-//require_once COMM_PATH .'func.php';
+require_once BASE_PATH . '/utils.php';
+
 
 //环境初始化
 //Env::registerFunc(ENV_FUNC_UNPACK,array('ReqManager','unpackHttp'));
